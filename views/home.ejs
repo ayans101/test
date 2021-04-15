@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+    </head>
+    <body>
+        <h1>Test / <%= title %></h1>
+        <form action="/check" method="POST">
+            <input type="text" name="sentence" placeholder="word" required>
+            <input type="submit" value="Check pangram">
+        </form>
+        <div>
+            <span>
+                <% if(locals.sol){ %>
+                    <%= locals.sol %>
+                <% } %>
+            </span>
+            <br />
+            <span>
+                <% if(locals.miss){ %>
+                    <%= locals.miss %>
+                <% } %>
+            </span>
+        </div>
+    </body>
+</html>
