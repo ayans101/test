@@ -6,5 +6,6 @@ console.log('router loaded');
 
 router.get('/', homeController.home);
 router.post('/check', homeController.checkPangram);
+router.post('/showStar', homeController.showStar);
 
 module.exports = router;

@@ -6,22 +6,35 @@
     </head>
     <body>
         <h1>Test / <%= title %></h1>
-        <form action="/check" method="POST">
-            <input type="text" name="sentence" placeholder="word" required>
-            <input type="submit" value="Check pangram">
-        </form>
+        <h3><a href="/">Home</a></h3>
         <div>
-            <span>
-                <% if(locals.sol){ %>
-                    <%= locals.sol %>
-                <% } %>
-            </span>
-            <br />
-            <span>
-                <% if(locals.miss){ %>
-                    <%= locals.miss %>
-                <% } %>
-            </span>
+            <form action="/check" method="POST">
+                <input type="text" name="sentence" placeholder="word" required>
+                <input type="submit" value="Check pangram">
+            </form>
+            <div>
+                <span>
+                    <% if(locals.sol){ %>
+                        <%= locals.sol %>
+                    <% } %>
+                </span>
+                <br />
+                <small>
+                    <% if(locals.miss){ %>
+                        <%= locals.miss %>
+                    <% } %>
+                    </small>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div>
+            <form action="/showStar" method="POST">
+                <input type="text" name="range" placeholder="range" required>
+                <input type="text" name="list" placeholder="list" required>
+                <input type="submit" value="submit">
+            </form>
+
         </div>
     </body>
 </html>
