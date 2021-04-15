@@ -45,40 +45,32 @@ module.exports.showStar = function(req, res) {
         }
         if(list[i] == '-'){
             let x = parseInt(list[i] + list[i+1]);
-            a.push(x)
+            a.push(x);
+            i++;
         }
     }
     console.log(a);
-    let s = [];
-    for(let i = 0; i < 2 * r + 1; i++) {
-        let str = '';
-        for(let j = 0; j < 2 * r + 1; j++) {
-            str += '#' ;
-        }
-        s.push(str);
-    }
-    // console.log(s);
     let ani = [];
     for(let i=0;i<a.length;i++){
         if(a[i]>0){
             for(let j=r-a[i];j<r;j++){
                 let obj = (j).toString() + ' ' + (r+a[i]).toString();
                 ani.push(obj);
-                console.log(obj);
+                // console.log(obj);
             }
         }else if(a[i]<0){
             for(let j=r;j<r-a[i];j++){
                 let obj = (j+1).toString() + ' ' + (r+a[i]).toString();
                 ani.push(obj);
-                console.log(obj);
+                // console.log(obj);
             }
         }else {
             let obj = (r).toString() + ' ' + (r).toString();
             ani.push(obj);
-            console.log(obj);
+            // console.log(obj);
         }
     }
-    console.log(ani);
+    // console.log(ani);
     let ans = ""
     for(let i=0;i<r*2+1;i++){
         for(let j=0;j<r*2+1;j++){
@@ -94,5 +86,8 @@ module.exports.showStar = function(req, res) {
     }
     console.log(ans);
 
-    res.redirect('back');
+    return res.render('home', {
+        title: "Home",
+        pattern: ans
+    });
 }
