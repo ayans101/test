@@ -70,9 +70,27 @@ module.exports.showStar = function(req, res) {
             // console.log(obj);
         }
     }
-    // console.log(ani);
-    let ans = ""
+    console.log(ani);
+    let ans = " "
     for(let i=0;i<r*2+1;i++){
+        if(i == r) {
+            for(let j = 0; j < r * 2 + 1; j++){
+                if(j - r < 0){
+                    ans = ans + (j-r).toString();
+                }else if(j - r == 0) {
+                    let obj = (i).toString() + ' ' + (j).toString();
+                    if(ani.includes(obj)){
+                        ans = ans + " * "
+                    }else{
+                        ans = ans + " 0 "; 
+                    }
+                }else{
+                    ans = ans + (j-r).toString() + " ";
+                }
+            }
+            ans = ans + '\n ';
+            i++;
+        }
         for(let j=0;j<r*2+1;j++){
             let obj = (i).toString() + ' ' + (j).toString();
             if(ani.includes(obj)){
@@ -82,7 +100,11 @@ module.exports.showStar = function(req, res) {
                 ans = ans + ' ' + " ";
             }
         }
-        ans = ans + '\n'
+        if(i == r - 1){
+            ans = ans + '\n';
+        }else{
+            ans = ans + '\n '
+        }
     }
     console.log(ans);
 
